@@ -1,0 +1,27 @@
+﻿Path = Skapa i en annan OU, som sökvägen till en fil, behövs inte
+Parantes runt specifika ord är endast för att förtydlig att det är obestämt och ska ändras, till skillnad från "" som ska stå kvar även om man ändrar innehållet 
+cd "mapp"
+nano = text redigerare?
+
+AD-Användare:
+Skapa:New-ADUser -Name "Name" -AccountPassword (ConvertTo-SecureString "Lösenord" -AsPlainText -Force) -Enabled $true
+Radera:Remove-ADUser -Identity (Name)
+Ändra:Set-ADUser -Identity (Name)
+Ändra Lösenord: Set-ADAccountPassword -Identity -Reset
+
+AD-Grupper:
+Skapa:New-ADGroup -Name "Name" -SamAccountName (Name) -GroupCategory (Kategori) -GroupScope (Scope) -DisplayName "DisplayName" -Path "Path" Description "Beskrivning"
+Radera:Remove-ADGroup -Identity (Name)
+Ändra:Set-ADGroup -Identity (Name)
+
+AD OU:
+Skapa:New-ADOrganizationalUnit -Name "Name" -Description "Beskrivning" -Path "Path"
+Radera:Remove-ADOrganizationalUnit -Identity (Name)
+Ändra:Set-ADOrganizationalUnit -Identity (Name)
+Få Information:Get-ADOrganizationalUnit -Identity (Name)
+
+Medlemskap (Grupp):
+Add-ADGroupMember -Identity "Grupp" -Members (Name)
+Remove-ADGroupMember -Identity "Grupp" -Members (Name)
+
+
